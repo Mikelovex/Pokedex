@@ -1,0 +1,77 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+.texto {
+    font-family: 'Roboto', sans-serif;
+    text-align: center;
+    background: rgb(33, 158, 241);
+    color: white;
+}
+
+.texto h1 {
+    padding: 20px;
+}
+
+
+.container {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+    background-image: url(../imagens/img.png);
+}
+
+
+.Modal {
+   display: grid;
+   grid-template-rows: 2fr 1fr;
+    position: fixed;
+    top: 130px;
+    left: 670px;
+    right: 670px;
+    bottom: 130px;
+    outline: none;
+}
+
+
+.Modal img {
+    display: flex;
+    flex-direction: row;
+    flex-direction: column;
+    justify-content: center;
+    height: 300px;
+    margin-top: 60px;
+    margin-left: 140px;
+}
+
+
+.Overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.7 );
+
+}
+
+
+.content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-size: 30px;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    background: rgb(248, 232, 232);
+    border-radius: 0 0 20px 20px;
+}
+
+.sc-gtssRu{
+    border-radius: 20px 20px 0 0;
+}
+
+.content h1 {
+    padding-bottom: 20px;
+}
