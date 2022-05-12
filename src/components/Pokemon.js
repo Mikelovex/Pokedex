@@ -31,62 +31,33 @@ function Pokemon({ name, id }) {
         getPokemon()
     }, [])
 
-    function color() {
-        if (pokemon.type === 'grass') {
-            return '#5AA350'
-        }
-        if (pokemon.type === 'water') {
-            return '#27A4F2'
-        }
-        if (pokemon.type === 'fire') {
-            return '#F27405'
-        }
-        if (pokemon.type === 'bug') {
-            return '#92BF30'
-        }
-        if (pokemon.type === 'normal') {
-            return '#D9A796'
-        }
-        if (pokemon.type === 'poison') {
-            return '#A65398'
-        }
-        if (pokemon.type === 'electric') {
-            return '#F2B705'
-        }
-        if (pokemon.type === 'ground') {
-            return '#BF6F41'
-        }
-        if (pokemon.type === 'fairy') {
-            return '#f599e9'
-        }
-        if (pokemon.type === 'fighting') {
-            return '#734E40'
-        }
-        if (pokemon.type === 'psychic') {
-            return '#FF69B4'
-        }
-        if (pokemon.type === 'rock') {
-            return '#77828C'
-        }
-        if (pokemon.type === 'ghost') {
-            return '#b36fe0'
-        }
-        if (pokemon.type === 'dragon') {
-            return 'cadetblue'
-        }
-        if (pokemon.type === 'ice') {
-            return '#84B8D9'
-        }
+
+    const colorsObject = {
+        grass: '#5AA350',
+        water: '#27A4F2',
+        fire: '#F27405',
+        bug: '#92BF30',
+        normal: '#D9A796',
+        poison: '#A65398',
+        electric: '#F2B705',
+        ground: '#BF6F41',
+        fairy: '#f599e9',
+        fighting: '#734E40',
+        psychic: '#77828C',
+        rock: '#F27405',
+        ghost: '#b36fe0',
+        dragon: '#cadetblue',
+        ice: '#84B8D9',
     }
 
     return (
         <>
-            <Card background={color()} onClick={() => setShow(true)} className="card" >
+            <Card background={colorsObject[pokemon.type]} onClick={() => setShow(true)} className="card" >
                 <img src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${id}.png`} alt="" />
                 <h3>{pokemon.name}</h3>
             </Card>
-            <Modal background={color()} className="Modal" overlayClassName="Overlay" isOpen={show} onRequestClose={() => setShow(false)} >
-                <ModalColor background={color()} >
+            <Modal background={colorsObject[pokemon.type]} className="Modal" overlayClassName="Overlay" isOpen={show} onRequestClose={() => setShow(false)} >
+                <ModalColor background={colorsObject[pokemon.type]} >
                     <img src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${id}.png`} alt="" />
                 </ModalColor>
                 <div className="content">
