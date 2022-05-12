@@ -2,12 +2,12 @@ import React, { useState, useEffect } from 'react'
 import './Pokemon.css'
 import Modal from 'react-modal'
 import Card from './Color'
-import ModalColor  from './ModalColor'
+import ModalColor from './ModalColor'
 
-function Pokemon({name, id}) {
+function Pokemon({ name, id }) {
 
     const [pokemon, setPokemon] = useState('')
-    const [show , setShow] = useState(false)
+    const [show, setShow] = useState(false)
 
     useEffect(() => {
 
@@ -24,89 +24,89 @@ function Pokemon({name, id}) {
                 altura: data.height
             }
             setPokemon(api)
-            
+
             return api
         }
 
         getPokemon()
     }, [])
 
-    function color(){
-        if(pokemon.type === 'grass') {
+    function color() {
+        if (pokemon.type === 'grass') {
             return '#5AA350'
         }
-        if(pokemon.type === 'water') {
+        if (pokemon.type === 'water') {
             return '#27A4F2'
         }
-        if(pokemon.type === 'fire') {
+        if (pokemon.type === 'fire') {
             return '#F27405'
         }
-        if(pokemon.type === 'bug') {
+        if (pokemon.type === 'bug') {
             return '#92BF30'
         }
-        if(pokemon.type === 'normal') {
+        if (pokemon.type === 'normal') {
             return '#D9A796'
         }
-        if(pokemon.type === 'poison') {
+        if (pokemon.type === 'poison') {
             return '#A65398'
         }
-        if(pokemon.type === 'electric') {
+        if (pokemon.type === 'electric') {
             return '#F2B705'
         }
-        if(pokemon.type === 'ground') {
+        if (pokemon.type === 'ground') {
             return '#BF6F41'
         }
-        if(pokemon.type === 'fairy') {
+        if (pokemon.type === 'fairy') {
             return '#f599e9'
         }
-        if(pokemon.type === 'fighting') {
+        if (pokemon.type === 'fighting') {
             return '#734E40'
         }
-        if(pokemon.type === 'psychic') {
+        if (pokemon.type === 'psychic') {
             return '#FF69B4'
         }
-        if(pokemon.type === 'rock') {
+        if (pokemon.type === 'rock') {
             return '#77828C'
         }
-        if(pokemon.type === 'ghost') {
+        if (pokemon.type === 'ghost') {
             return '#b36fe0'
-        } 
-        if(pokemon.type === 'dragon') {
+        }
+        if (pokemon.type === 'dragon') {
             return 'cadetblue'
-        } 
-        if(pokemon.type === 'ice') {
+        }
+        if (pokemon.type === 'ice') {
             return '#84B8D9'
-        } 
+        }
     }
 
-    return(
+    return (
         <>
-        <Card background={color()} onClick={() => setShow(true)} className="card" >
-            <img src={`https://pokeres.bastionbot.org/images/pokemon/${id}.png`} alt=""/>
-            <h3>{pokemon.name}</h3>
-        </Card>
-        <Modal  background={color()} className="Modal" overlayClassName="Overlay" isOpen={show} onRequestClose={() => setShow(false)} >
-            <ModalColor background={color()} >
-                <img src={`https://pokeres.bastionbot.org/images/pokemon/${id}.png`} alt=""/>
-            </ModalColor> 
-            <div className="content">
-                <h1 className="modal-name">{pokemon.name}</h1>
-                <div className="texto-modal">
-                    <div className="texto1">
-                        <span>Type: {pokemon.type}</span>
-                    </div>
-                    <div className="texto2">
-                        <span>Experience: {pokemon.experience}</span>
-                    </div>
-                    <div className="texto3">
-                        <span>Weight: {pokemon.peso}</span>
-                    </div>
-                    <div className="texto4">
-                        <span>Weight: {pokemon.altura}</span>
+            <Card background={color()} onClick={() => setShow(true)} className="card" >
+                <img src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${id}.png`} alt="" />
+                <h3>{pokemon.name}</h3>
+            </Card>
+            <Modal background={color()} className="Modal" overlayClassName="Overlay" isOpen={show} onRequestClose={() => setShow(false)} >
+                <ModalColor background={color()} >
+                    <img src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${id}.png`} alt="" />
+                </ModalColor>
+                <div className="content">
+                    <h1 className="modal-name">{pokemon.name}</h1>
+                    <div className="texto-modal">
+                        <div className="texto1">
+                            <span>Type: {pokemon.type}</span>
+                        </div>
+                        <div className="texto2">
+                            <span>Experience: {pokemon.experience}</span>
+                        </div>
+                        <div className="texto3">
+                            <span>Weight: {pokemon.peso}</span>
+                        </div>
+                        <div className="texto4">
+                            <span>Weight: {pokemon.altura}</span>
+                        </div>
                     </div>
                 </div>
-            </div>
-        </Modal>
+            </Modal>
         </>
     )
 }
